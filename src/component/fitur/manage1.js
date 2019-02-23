@@ -51,10 +51,10 @@ class manageImage extends Component {
   };
 
   handleSaveClick = id => {
-    var {id_produk,img1,img2,img3} = this.state;
+    var {img1,img2,img3} = this.state;
     axios
-      .post("http://localhost:2000/image-edit/" + id, {
-        id_produk,img1,img2,img3
+      .post("http://localhost:2000/img-edit/" + id, {
+        img1,img2,img3
       })
       .then(res => {
         this.getimage();
@@ -68,7 +68,7 @@ class manageImage extends Component {
   handleDeleteClick = id => {
     if (window.confirm("ARE YOU SURE ??")) {
       axios
-        .delete("http://localhost:2000/image-delete/" + id)
+        .delete("http://localhost:2000/img-delete/" + id)
         .then(res => {
           this.getimage();
         })
@@ -80,58 +80,9 @@ class manageImage extends Component {
 
   renderproduk = () => {
     var listJSXitem = this.state.listimage.map(item => {
-      if (this.state.selectedEdit === item.id) {
+      if (item.id !== this.state.selectedEdit) {
         return (
           <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>
-              {item.id_produk}
-            </td>
-            <td>
-              <input
-                type="text"
-                name="img1"
-                onChange={this.handleChange}
-                defaultValue={item.img1}
-              />
-            </td>
-            <td>
-            <input
-                type="text"
-                name="img2"
-                onChange={this.handleChange}
-                defaultValue={item.img2}
-              />
-            </td>
-            <td>
-            <input
-                type="text"
-                name="img3"
-                onChange={this.handleChange}
-                defaultValue={item.img3}
-              />
-            </td>
-            <td>
-              <input
-                className="btn btn-primary"
-                type="button"
-                value="Save"
-                onClick={() => this.handleSaveClick(item.id)}
-              />
-            </td>
-            <td>
-              <input
-                className="btn btn-danger"
-                type="button"
-                value="Cancel"
-                onClick={() => this.setState({ selectedEdit: 0 })}
-              />
-            </td>
-          </tr>
-        );
-      }
-      return (
-        <tr key={item.id}>
           <td>{item.id}</td>
           <td>{item.id_produk}</td>
           <td><img src={item.img1} width="100px" alt="" /></td>
@@ -154,6 +105,56 @@ class manageImage extends Component {
             />
           </td>
         </tr>
+          
+        );
+      }
+      return (
+        <tr>
+            <td>{item.id}</td>
+            <td>
+              {item.id_produk}
+            </td>
+            <td>
+              <input
+                type="text"
+                defaultValue={item.img1}
+                name="img1"
+                onChange={this.handleChange}
+              />
+            </td>
+            <td>
+            <input
+                type="text"
+                defaultValue={item.img2}
+                name="img2"
+                onChange={this.handleChange}
+              />
+            </td>
+            <td>
+            <input
+                type="text"
+                defaultValue={item.img3}
+                name="img3"
+                onChange={this.handleChange}
+              />
+            </td>
+            <td>
+              <input
+                className="btn btn-primary"
+                type="button"
+                value="Save"
+                onClick={() => this.handleSaveClick(item.id)}
+              />
+            </td>
+            <td>
+              <input
+                className="btn btn-danger"
+                type="button"
+                value="Cancel"
+                onClick={() => this.setState({ selectedEdit: 0 })}
+              />
+            </td>
+          </tr>
       );
     });
     return listJSXitem;
@@ -185,7 +186,7 @@ class manageImage extends Component {
               <td />
               <td>
                 <input
-                  type="text"
+                  type="number"
                   name="id_produk"
                   placeholder="id_produk"
                   onChange={this.handleChange}

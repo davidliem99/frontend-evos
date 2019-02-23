@@ -87,28 +87,31 @@ class manageProduk extends Component {
               <input
                 type="text"
                 name="namaproduk"
-                onChange={this.handleChange}
                 defaultValue={item.namaproduk}
+                onChange={this.handleChange}
+                
               />
             </td>
             <td>
               <input
                 type="text"
                 name="hargaproduk"
-                onChange={this.handleChange}
                 defaultValue={item.hargaproduk}
+                onChange={this.handleChange}
+                
               />
             </td>
             <td>
             <select
                 name="kategoriproduk"
-                onChange={this.handleChange}
-                defaultValue={item.kategoriproduk}>
+                defaultValue={item.kategoriproduk}
+                onChange={this.handleChange}>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
+                <option>6</option>
             </select>
             </td>
             <td>
@@ -165,7 +168,7 @@ class manageProduk extends Component {
     };
     return (
       <div>
-        <h1 style={hStyle}>produk List</h1>
+        <h1 style={hStyle}>Manage Produk</h1>
         <div>
           <Table bordered>
             <thead>
@@ -206,6 +209,7 @@ class manageProduk extends Component {
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
+                <option>6</option>
             </select>
               </td>
               <td>

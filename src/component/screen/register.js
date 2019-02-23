@@ -40,7 +40,7 @@ class Register extends Component{
                 <div className="col-md-12">
                         <Form  className="form-signin text-center" id="login-form">
                         {/* <img className="mb-4" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt width={72} height={72} /> */}
-                        <h1 className="h3 mb-3 font-weight-normal">Warehousenesia.id</h1>
+                        <h1 className="h3 mb-3 font-weight-normal">EVOS GOODS</h1>
                         <h2 className="h3 mb-3 font-weight-normal">Register here</h2>
                         <div className="form-group">
                         <label htmlFor="inputUsername" className="label-signin">Username:</label>

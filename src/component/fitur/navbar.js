@@ -69,7 +69,7 @@ class Header extends React.Component {
       </div>
     );
   }
-  else if(this.props.username === 'davidliem'){
+  else if(this.props.username === 'admin'){
     return( <Navbar light expand="md">
     <Link to='/'><NavbarBrand style={{color:'black'}}>EVOS GOODS</NavbarBrand></Link>
     <NavbarToggler onClick={this.toggle} />
