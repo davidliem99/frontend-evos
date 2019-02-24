@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+ import React,{Component} from 'react';
 import CarousellFitur from'../fitur/carousell'
 class Homepage extends Component{
     render(){

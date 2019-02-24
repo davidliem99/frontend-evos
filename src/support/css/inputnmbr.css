@@ -1,0 +1,13 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: "Always Show Up/Down Arrows";
+    opacity: 1;
+}
+
+.inputnumber{
+    width: 20%;
+    text-align: center;
+    border: none;
+    -webkit-appearance: "Always Show Up/Down Arrows";
+    opacity: 1;
+}

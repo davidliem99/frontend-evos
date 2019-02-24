@@ -7,7 +7,9 @@ import {
     REGISTER_LOADING,
     COOKIE_CHECKED,
     HARUS_DIISI,
-    USERNAME_TIDAK_TERSEDIA
+    USERNAME_TIDAK_TERSEDIA,
+    INSERT_CART,
+    CART_ERROR
 } from './types';
 export const onUserLogout=()=>{
     return{type: LOGOUT }
@@ -19,6 +21,7 @@ export const keepLogin =(username)=>{
                 username
             }
         }).then((res)=>{
+            console.log(res.data)
             if(res.data.length > 0 ){
                 dispatch({
                     type: USER_LOGIN_SUCCESS, payload: username
@@ -82,5 +85,22 @@ export const onUserRegister = ({username,email,phone, password})=>{
             
         }
         
+    }
+}
+export const addToCart = ({username, id_produk, numb, cartdate}) =>{
+    return(dispatch)=>{
+        dispatch({type: LOGIN_LOADING})
+        axios.post('http://localhost:2000/insert-cart', {
+            username,
+            id_produk,
+            qty:numb,
+            date:cartdate
+        }).then((res)=> {
+            console.log(res)
+            dispatch({type: INSERT_CART})
+        }).catch((err)=>{
+            console.log(err)
+            dispatch({type: CART_ERROR})
+        }) 
     }
 }
