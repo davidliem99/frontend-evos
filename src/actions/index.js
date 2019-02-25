@@ -9,7 +9,9 @@ import {
     HARUS_DIISI,
     USERNAME_TIDAK_TERSEDIA,
     INSERT_CART,
-    CART_ERROR
+    CART_ERROR,
+    DELETE_CART,
+    DELETE_CART_ERROR
 } from './types';
 export const onUserLogout=()=>{
     return{type: LOGOUT }
@@ -101,6 +103,19 @@ export const addToCart = ({username, id_produk, numb, cartdate}) =>{
         }).catch((err)=>{
             console.log(err)
             dispatch({type: CART_ERROR})
+        }) 
+    }
+}
+
+export const deleteCart = (id) =>{
+    return(dispatch)=>{
+        dispatch({type: LOGIN_LOADING})
+        axios.delete('http://localhost:2000/delete-cart/' + id).then((res)=> {
+            console.log(res)
+            dispatch({type: DELETE_CART})
+        }).catch((err)=>{
+            console.log(err)
+            dispatch({type: DELETE_CART_ERROR})
         }) 
     }
 }

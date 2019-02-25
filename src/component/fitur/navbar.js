@@ -130,8 +130,8 @@ class Header extends React.Component {
                 <DropdownItem>
                   Profile
                 </DropdownItem>
-                <Link to='/'><DropdownItem>
-                  Option
+                <Link to='/cart'><DropdownItem>
+                  My Cart
                 </DropdownItem></Link>
                 <DropdownItem divider />
                 <a href="/"><DropdownItem onClick={this.onLogOutSelect}>

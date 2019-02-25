@@ -16,6 +16,7 @@ import Partners from './component/screen/partners';
 import manage from './component/fitur/manage';
 import manage1 from './component/fitur/manage1';
 import Footer from './component/screen/footer';
+import Cart from './component/fitur/cart';
 
 
 
@@ -42,6 +43,7 @@ class App extends Component {
             <Route exact path='/partners' component={Partners}/>
             <Route exact path='/manageproduk' component={manage}/>
             <Route exact path='/manageimage' component={manage1}/>
+            <Route exact path='/cart' component={Cart}/>
             <Footer/>
         </div>
       );

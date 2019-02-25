@@ -1,0 +1,23 @@
+td, th{
+    background: aquamarine;
+    border-radius: 5px;
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+    height: 50px;
+}
+
+td.noborder {
+    background: none;
+}
+
+table.space-table {
+    border-collapse: separate;
+    border-spacing: 0px 14px;
+}

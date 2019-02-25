@@ -6,7 +6,8 @@ const marRight = {marginRight: '20px'}
 
 class HomeUser extends Component{
     state={
-        produkList:[]
+        produkList:[],
+        searchProdukList:[]
     }
     componentDidMount(){
         this.getProduk()
@@ -22,14 +23,15 @@ class HomeUser extends Component{
     }
     putprodukList=()=>{
         var produk = this.state.produkList.map((item)=>{
-            var {id,nama,image}= item
+            var {id,nama,image,harga}= item
             return (
                 <div className="col-md-4">
                 <div className="space-list">
-                <Card>
+                <Card className='filter'>
                     <CardImg top width="100%" src={image} alt="Card image cap"/>
                     <CardBody>
                         <CardTitle>{nama}</CardTitle>
+                        <CardTitle>{harga}</CardTitle>
                         <a href={`/produkdetail?id=${id}`}><Button>Show Detail</Button></a>
                     </CardBody>
                 </Card>
@@ -43,19 +45,10 @@ class HomeUser extends Component{
         let input = this.refs.filterName.refs.innerFilterName.value
         let filter = input.toUpperCase()
         let filterSelect = this.refs.select.refs.selectInner.value
-        // let index = filter.indexOf()
-        // console.log(index)
-        // console.log(filter)
-        // var temp = []
-        // console.log(this.state.listProduk[1])
         let nama = this.state.produkList
-        // console.log(nama)
-        // console.log(nama.indexOf(input))
-        // var mapping = nama.map((val) => [val.namaproduk] )
-        // console.log(filtering)
         let id = document.getElementsByClassName('filter')
         for(let i = 0 ; i <= nama.length-1 ; i ++){
-          if(nama[i].namaproduk.toUpperCase().indexOf(filter) > -1 && nama[i].kategori.indexOf(filterSelect) > -1){
+          if(nama[i].nama.toUpperCase().indexOf(filter) > -1 && nama[i].kategori.indexOf(filterSelect) > -1){
             id[i].style.display = ''
           }else{
             id[i].style.display = 'none'

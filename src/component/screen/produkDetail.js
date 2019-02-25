@@ -35,7 +35,7 @@ class ProdukDetail extends Component{
         var numb = this.refs.number.value;
         console.log(numb);
         this.props.addToCart({username, id_produk, numb, cartdate});
-
+        alert('Berhasil menambahkan produk')
     }
 
     prodDetail=()=>{
